@@ -20,9 +20,9 @@ ctgan <- function(embedding_dim = 128, gen_dim = c(256, 256),
   ctgan <- reticulate::import("ctgan")
   model <- ctgan$CTGAN(
     embedding_dim = embedding_dim,
-    gen_dim = gen_dim,
-    dis_dim = dis_dim,
-    l2scale = l2_scale,
+    generator_dim = gen_dim,
+    discriminator_dim = dis_dim,
+    discriminator_decay = l2_scale,
     batch_size = batch_size
   )
 
