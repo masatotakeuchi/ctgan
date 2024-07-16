@@ -18,7 +18,7 @@ ctgan <- function(embedding_dim = 128, gen_dim = c(256, 256),
   batch_size <- cast_scalar_integer(batch_size)
 
   ctgan <- reticulate::import("ctgan")
-  model <- ctgan$CTGANSynthesizer(
+  model <- ctgan$CTGAN(
     embedding_dim = embedding_dim,
     gen_dim = gen_dim,
     dis_dim = dis_dim,
