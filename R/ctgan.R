@@ -51,8 +51,7 @@ CTGANModel <- R6::R6Class(
       private$model_obj$fit(
         train_data = as.matrix(train_data),
         discrete_columns = categorical_columns,
-        epochs = epochs,
-        log_frequency = log_frequency
+        epochs = epochs
       )
     },
     sample = function(n) {
@@ -100,11 +99,10 @@ CTGANModel <- R6::R6Class(
 #' @export
 fit.CTGANModel <-
   function(object, train_data,
-           epochs = 100, log_frequency = TRUE,...) {
+           epochs = 100,...) {
     epochs <- cast_scalar_integer(epochs)
-    log_frequency <- cast_scalar_logical(log_frequency)
 
-    object$fit(train_data, epochs, log_frequency)
+    object$fit(train_data, epochs)
 
     invisible(NULL)
   }
